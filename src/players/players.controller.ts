@@ -18,12 +18,12 @@ export class PlayersController {
     return this.playersService.findAll();
   }
 
-  @Get(':email')
+  @Get('/:email')
   async findOne(@Param('email',PlayersValidadtionParametersPipe) email: string) {
     return this.playersService.findOne(email);
   }
 
-  @Delete(':email')
+  @Delete('/:email')
   async delete(@Param('email', PlayersValidadtionParametersPipe) email: string) {
     return this.playersService.delete(email);
   }

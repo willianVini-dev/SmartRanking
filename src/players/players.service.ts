@@ -17,9 +17,9 @@ export class PlayersService {
    */
   async updateAndCreate(createPlayerDto: CreatePlayerDto): Promise<PlayerDocument> {
     const player = await this.playerModel.findOneAndUpdate(
-      { email: createPlayerDto.email },        // filtro
-      { ...createPlayerDto },                  // dados a atualizar
-      { upsert: true, new: true }              // cria se não existir, retorna atualizado
+      { email: createPlayerDto.email },        
+      { ...createPlayerDto },                  
+      { upsert: true, new: true }              
     ).exec();
     this.logger.log(`Player created or updated: ${player.name}`);
     return player;

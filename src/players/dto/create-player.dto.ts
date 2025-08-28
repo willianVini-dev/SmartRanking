@@ -4,7 +4,7 @@ export class CreatePlayerDto {
   @IsEmail()
   readonly email: string;
   @IsNotEmpty()
-  readonly phone: string;
+  phone: string;
   @IsNotEmpty()
   name: string;
 }
