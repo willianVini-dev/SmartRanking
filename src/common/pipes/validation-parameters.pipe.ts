@@ -1,10 +1,10 @@
 import { ArgumentMetadata, BadRequestException, PipeTransform } from "@nestjs/common";
 
-export class PlayersValidadtionParametersPipe implements PipeTransform {
+export class ValidadtionParametersPipe implements PipeTransform {
 
   transform(value: any, metadata: ArgumentMetadata) {
     if(!value)
-      throw new BadRequestException('Email parameter is required');
+      throw new BadRequestException(`The param ${metadata.data} is required`);
 
     return value;
   }

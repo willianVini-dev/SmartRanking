@@ -44,6 +44,15 @@ export class PlayersService {
   }
 
   /**
+   * Busca um player pelo email
+   */
+  async findById(id: string): Promise<PlayerDocument | null> {
+    const player = await this.playerModel.findById({ id }).exec();
+    this.logger.log(`Fetching player with id: ${id}`);
+    return player;
+  }
+
+  /**
    * Deleta um player pelo email
    */
   async delete(email: string): Promise<void> {
