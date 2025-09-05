@@ -1,5 +1,5 @@
 import { Controller, Post, UsePipes, ValidationPipe, Body } from '@nestjs/common';
-import { CreateChallengerDto } from './dto/create.challenger.dto';
+import { CreateChallengeDto } from './dto/create.challenge.dto';
 import { ChallengesService } from './challenges.service';
 
 @Controller('api/v1/challenges')
@@ -12,7 +12,7 @@ export class ChallengesController {
   @Post()
   @UsePipes(ValidationPipe)
   async create(
-    @Body() createChallengeDto: CreateChallengerDto
+    @Body() createChallengeDto: CreateChallengeDto
   ){
     return this.challengesService.create(createChallengeDto);
   }
