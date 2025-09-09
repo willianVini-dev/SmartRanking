@@ -62,4 +62,9 @@ export class CategoriesService {
     categoryExists.players.push(playerObjectId);
     await this.categoryModel.findByIdAndUpdate(categoryExists._id, { $set: categoryExists }).exec();    
   }
+
+  async findCategoryByPlayer(playerId: string): Promise<Category> {
+    const playerObjectId = new Types.ObjectId(playerId);   
+    return await this.categoryModel.findOne({ players: playerObjectId }).exec();
+  }
 }
